@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+
+
+.dashboard-container {
+    background-color: white;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+.sidebar {
+    width: 260px;
+    background-color: #1e2143;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.brand {
+    padding: 25px 20px;
+    color: #ffaa00;
+}
+
+.brand h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.menu-section {
+    padding: 10px 0;
+}
+
+.menu-label {
+    display: block;
+    padding: 10px 20px;
+    font-size: 11px;
+    color: #7b80a5;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.nav-list {
+    list-style: none;
+}
+
+.nav-item {
+    padding: 12px 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    color: #c0c4e1;
+    cursor: pointer;
+    margin: 4px 10px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.nav-item .icon {
+    margin-right: 12px;
+    font-size: 16px;
+}
+
+.nav-item:hover {
+    color: white;
+}
+
+.nav-item.active {
+    background-color: #ffaa00;
+    color: #1e2143;
+    font-weight: 600;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info strong {
+    font-size: 14px;
+}
+
+.user-info span {
+    font-size: 11px;
+    color: #7b80a5;
+}
+
+.logout-btn {
+    color: #ff5b5b;
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.logout-btn .icon {
+    margin-right: 8px;
+}

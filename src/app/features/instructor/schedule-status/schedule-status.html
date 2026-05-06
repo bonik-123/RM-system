@@ -1,0 +1,76 @@
+<main class="schedule-container">
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <h1>My Schedule & Status</h1>
+    <p>All your scheduled classes for the semester</p>
+  </div>
+
+  <!-- TABLE -->
+  <div class="schedule-section">
+
+    <div class="section-header">
+      <h2>📅 Class Schedule</h2>
+      <span class="count">{{ schedules().length }} Classes</span>
+    </div>
+
+    <div class="schedule-table">
+
+      <div class="table-header">
+        <div>Course</div>
+        <div>Time</div>
+        <div>Day</div>
+        <div>Room</div>
+        <div>Capacity</div>
+        <div>Status</div>
+      </div>
+
+      <div class="table-body">
+
+        <div class="table-row" *ngFor="let s of schedules()">
+
+          <div class="col-course">{{ s.course }}</div>
+          <div class="col-time">{{ s.time }}</div>
+          <div class="col-day">{{ s.day }}</div>
+          <div class="col-room">{{ s.room }}</div>
+          <div class="col-capacity">{{ s.capacity }} seats</div>
+
+          <div>
+            <span class="status-badge" [ngClass]="s.status.toLowerCase()">
+              {{ s.status }}
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-grid">
+
+    <div class="stat-card">
+      <div class="stat-value">{{ schedules().length }}</div>
+      <div class="stat-label">Total Classes</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-value">
+        {{ schedules().filter(s => s.status === 'Confirmed').length }}
+      </div>
+      <div class="stat-label">Confirmed</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-value">
+        {{ schedules().reduce((sum, s) => sum + s.capacity, 0) }}
+      </div>
+      <div class="stat-label">Total Capacity</div>
+    </div>
+
+  </div>
+
+</main>

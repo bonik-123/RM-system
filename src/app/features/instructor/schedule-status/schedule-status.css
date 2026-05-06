@@ -1,0 +1,226 @@
+/* =========================
+   WRAPPER
+========================= */
+
+:host {
+    width: 100%;
+    display: block;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.schedule-container {
+    width: 100%;
+    flex: 1;
+    min-width: 0;
+    background: #f3f6ff;
+
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.page-header {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    margin-bottom: 16px;
+}
+
+.page-header h1 {
+    font-size: 22px;
+    font-weight: 900;
+    color: #1e2143;
+}
+
+.page-header p {
+    font-size: 13px;
+    color: #666;
+    margin-top: 6px;
+}
+
+/* =========================
+   SECTION HEADER
+========================= */
+
+.schedule-section {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.section-header h2 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1e2143;
+}
+
+.count {
+    background: #fef0d8;
+    color: #b5853b;
+
+    padding: 6px 12px;
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.schedule-table {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table-header,
+.table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.table-header {
+    background: #1e2143;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.table-body {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ROW */
+
+.table-row {
+    background: #f8f9fc;
+    padding: 14px;
+
+    border-radius: 12px;
+    border: 1px solid #eef0f5;
+
+    transition: 0.2s ease;
+}
+
+.table-row:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* CELLS */
+
+.col-course {
+    font-weight: 700;
+    color: #1e2143;
+}
+
+.col-time,
+.col-day,
+.col-room,
+.col-capacity {
+    font-size: 13px;
+    color: #555;
+}
+
+/* =========================
+   STATUS BADGE
+========================= */
+
+.status-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+}
+
+/* statuses */
+
+.status-badge.confirmed {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-badge.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-badge.cancelled {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+/* =========================
+   STATS GRID (BOTTOM)
+========================= */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+
+    margin-top: 16px;
+}
+
+.stat-card {
+    background: white;
+    padding: 20px;
+
+    border-radius: 14px;
+    border: 1px solid #eef0f5;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+
+    text-align: center;
+    transition: 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+}
+
+.stat-value {
+    font-size: 26px;
+    font-weight: 900;
+    color: #1e2143;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #666;
+    text-transform: uppercase;
+    margin-top: 5px;
+}

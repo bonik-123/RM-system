@@ -1,0 +1,69 @@
+<div class="dashboard-container">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="brand">
+      <h2>Smart Campus</h2>
+    </div>
+
+    <!-- MAIN MENU -->
+    <div class="menu-section">
+      <span class="menu-label">INSTRUCTOR MENU</span>
+
+      <ul class="nav-list">
+        <li routerLink="/instructor/dashboard" routerLinkActive="active" class="nav-item">
+          <span class="icon">⊕</span> Dashboard
+        </li>
+
+        <li routerLink="/instructor/schedule" routerLinkActive="active" class="nav-item">
+          <span class="icon">📅</span> My Schedule
+        </li>
+
+        <li routerLink="/instructor/booking" routerLinkActive="active" class="nav-item">
+          <span class="icon">📋</span> Booking Requests
+        </li>
+
+        <li routerLink="/instructor/availability" routerLinkActive="active" class="nav-item">
+          <span class="icon">🏫</span> Available Rooms
+        </li>
+      </ul>
+    </div>
+
+    <!-- SYSTEM -->
+    <div class="menu-section">
+      <span class="menu-label">SYSTEM</span>
+
+      <ul class="nav-list">
+        <li routerLink="/instructor/about" routerLinkActive="active" class="nav-item">
+          <span class="icon">ℹ</span> About System
+        </li>
+
+        <li routerLink="/instructor/support" routerLinkActive="active" class="nav-item">
+          <span class="icon">⚙</span> Support
+        </li>
+      </ul>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="sidebar-footer">
+      <div class="user-profile">
+        <div class="avatar">👤</div>
+
+        <div class="user-info">
+          <strong>Instructor</strong>
+          <span></span>
+        </div>
+      </div>
+
+      <a class="logout-btn">
+        <span class="icon">⤿</span> Logout
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+  <router-outlet></router-outlet>
+
+</div>

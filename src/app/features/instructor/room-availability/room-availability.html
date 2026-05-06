@@ -1,0 +1,89 @@
+<div class="room-container">
+  <!-- Header Stats -->
+  <div class="stats-header">
+    <h1>Availability</h1>
+    <div class="header-info">
+      <div class="info-box">
+        <h3>{{ roomStats().available }}</h3>
+        <p>Rooms Available</p>
+      </div>
+      <div class="info-box">
+        <h3>{{ roomStats().resources }}</h3>
+        <p>Resources Ready</p>
+      </div>
+      <p class="check-message">Check live availability before submitting a booking request.</p>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button 
+      class="tab-btn"
+      [class.active]="activeTab() === 'rooms'"
+      (click)="setTab('rooms')">
+      Rooms
+    </button>
+    <button 
+      class="tab-btn"
+      [class.active]="activeTab() === 'resources'"
+      (click)="setTab('resources')">
+      Resources
+    </button>
+  </div>
+
+  <!-- Rooms Tab -->
+  <div *ngIf="activeTab() === 'rooms'" class="tab-content">
+    <div class="rooms-grid">
+      <div *ngFor="let room of rooms()" class="room-card">
+        <div class="room-header">
+          <h3>{{ room.name }}</h3>
+          <span [ngClass]="'availability-badge ' + getAvailabilityClass(room.availability)">
+            {{ room.status }}
+          </span>
+        </div>
+        <p class="room-location">{{ room.location }}</p>
+        <div class="room-details">
+          <div class="detail-item">
+            <span class="icon">👥</span>
+            <span>{{ room.seats }} seats</span>
+          </div>
+          <div class="detail-item" *ngIf="room.freeUntil !== 'N/A'">
+            <span class="icon">⏰</span>
+            <span>Free at {{ room.freeUntil }}</span>
+          </div>
+        </div>
+        <div class="amenities">
+          <span *ngFor="let amenity of room.amenities" class="amenity-tag">{{ amenity }}</span>
+        </div>
+        <button 
+          class="btn-book"
+          [disabled]="room.availability !== 'available'">
+          Book This Room
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resources Tab -->
+  <div *ngIf="activeTab() === 'resources'" class="tab-content">
+    <div class="resources-grid">
+      <div *ngFor="let resource of resources()" class="resource-card">
+        <div class="resource-header">
+          <h3>{{ resource.name }}</h3>
+          <span class="availability-count">{{ resource.status }}</span>
+        </div>
+        <p class="resource-type">{{ resource.type }}</p>
+        <div class="availability-bar">
+          <div 
+            class="bar-fill" 
+            [style.width.%]="(resource.available / resource.total) * 100">
+          </div>
+        </div>
+        <div class="availability-text">
+          {{ resource.available }} of {{ resource.total }} units available
+        </div>
+        <button class="btn-request">Request This Resource</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,236 @@
+/* =========================
+   HOST WRAPPER
+========================= */
+
+:host {
+    width: 100%;
+    display: block;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main-content {
+    width: 100%;
+    flex: 1;
+    min-width: 0;
+    background: #f3f6ff;
+
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.top-header {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    padding: 16px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e6e9f2;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.top-header h1 {
+    font-size: 20px;
+    font-weight: 900;
+    color: #1e2143;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.date-info {
+    text-align: right;
+}
+
+.day-label {
+    display: block;
+    font-size: 11px;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.date-text {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a153a;
+}
+
+.version-tag {
+    background: #fef0d8;
+    color: #b5853b;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* =========================
+   WELCOME PANEL
+========================= */
+
+.welcome-panel {
+    padding: 40px;
+    height: 140px;
+    border-radius: 20px;
+    background: #1e2143;
+    color: white;
+    box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+    margin: 16px 10px;
+}
+
+.welcome-panel h2 {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.welcome-panel p {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-top: 6px;
+}
+
+/* =========================
+   PANELS
+========================= */
+
+.mission-panel,
+.features-panel,
+.roles-panel {
+    margin: 16px 0;
+    padding: 25px;
+    border-radius: 16px;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.panel-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e2143;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   MISSION
+========================= */
+
+.mission-panel p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #555;
+    background: #f8f9fc;
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid #eef0f5;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+.feature-card {
+    display: flex;
+    gap: 14px;
+    background: #f8f9fc;
+    border: 1px solid #eef0f5;
+    padding: 16px;
+    border-radius: 14px;
+    transition: 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.icon-box {
+    width: 45px;
+    height: 45px;
+    background: #ffaa00;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+}
+
+.feature-card h4 {
+    font-size: 15px;
+    font-weight: 800;
+    color: #1e2143;
+    margin-bottom: 4px;
+}
+
+.feature-card p {
+    font-size: 13px;
+    color: #666;
+}
+
+/* =========================
+   ROLES
+========================= */
+
+.role-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+.role-card {
+    padding: 18px;
+    border-radius: 14px;
+    background: #f8f9fc;
+    border: 1px solid #eef0f5;
+    transition: 0.2s ease;
+}
+
+.role-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.role-card h4 {
+    font-size: 16px;
+    font-weight: 900;
+    color: #1e2143;
+}
+
+.role-card p {
+    font-size: 13px;
+    color: #666;
+    margin-top: 6px;
+    line-height: 1.5;
+}
+
+/* ROLE COLORS */
+
+.role-card.admin { border-left: 5px solid #dc2626; }
+.role-card.instructor { border-left: 5px solid #1d4ed8; }
+.role-card.student { border-left: 5px solid #16a34a; }

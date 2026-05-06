@@ -1,0 +1,154 @@
+<main class="main-content">
+
+  <!-- HEADER -->
+  <header class="top-header">
+    <h1>Room Management</h1>
+
+    <div class="header-right">
+      <div class="date-info">
+        <span class="day-label">Today</span>
+        <span class="date-text">{{ currentDate }}</span>
+      </div>
+
+      <span class="version-tag">Smart Campus v1.0</span>
+    </div>
+  </header>
+
+  <!-- WELCOME -->
+  <div class="welcome-panel">
+    <h2>Room Management 🏫</h2>
+    <p>View, manage, and schedule campus rooms with real-time availability tracking and detailed room information.</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-panel">
+    <h3 class="panel-title">Room Overview</h3>
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <div class="stat-icon">🏫</div>
+        <div>
+          <h4>{{ totalRooms }}</h4>
+          <span>Total Rooms</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">✓</div>
+        <div>
+          <h4>{{ available }}</h4>
+          <span>Available</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">👥</div>
+        <div>
+          <h4>{{ occupied }}</h4>
+          <span>Occupied</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">🔧</div>
+        <div>
+          <h4>{{ maintenance }}</h4>
+          <span>Maintenance</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FILTER -->
+  <div class="filter-panel">
+    <h3 class="panel-title">Filter Rooms</h3>
+
+    <div class="filter-controls">
+      <input type="text" placeholder="Search rooms..." class="search-input">
+
+      <select class="filter-select">
+        <option>All Status</option>
+        <option>Available</option>
+        <option>Occupied</option>
+        <option>Maintenance</option>
+      </select>
+
+      <select class="filter-select">
+        <option>All Types</option>
+        <option>Lecture Hall</option>
+        <option>Classroom</option>
+        <option>Computer Lab</option>
+        <option>Seminar Room</option>
+      </select>
+
+      <button class="btn-add" (click)="addRoom()">
+        + Add Room
+      </button>
+    </div>
+  </div>
+
+  <!-- ROOMS -->
+  <div class="rooms-panel">
+    <h3 class="panel-title">Room Inventory</h3>
+
+    <div class="room-grid">
+
+      <div class="room-card" *ngFor="let room of rooms">
+
+        <!-- HEADER -->
+        <div class="room-header">
+
+          <div class="room-icon">
+            {{ room.icon }}
+          </div>
+
+          <div class="room-info">
+            <h4>{{ room.name }}</h4>
+            <p>{{ room.type }}</p>
+          </div>
+
+          <div class="room-actions">
+            <button class="action-btn edit" (click)="edit(room)">✎</button>
+            <button class="action-btn delete" (click)="delete(room)">🗑</button>
+          </div>
+
+        </div>
+
+        <!-- DETAILS -->
+        <div class="room-details">
+          <span class="detail-item">
+            <strong>Floor:</strong> {{ room.floor }}
+          </span>
+
+          <span class="detail-item">
+            <strong>Capacity:</strong> {{ room.capacity }}
+          </span>
+        </div>
+
+        <!-- FEATURES -->
+        <div class="room-features">
+          <span class="feature-tag" *ngFor="let f of room.features">
+            {{ f }}
+          </span>
+        </div>
+
+        <!-- STATUS -->
+        <div class="room-status">
+          <span class="status-tag" [ngClass]="room.statusClass">
+            {{ room.status }}
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-info">
+      Showing {{ rooms.length }} rooms
+    </div>
+
+  </div>
+
+</main>

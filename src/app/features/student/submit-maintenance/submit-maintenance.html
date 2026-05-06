@@ -1,0 +1,50 @@
+<div class="submit-page">
+  <section class="form-card">
+    <div class="form-header">
+      <div>
+        <p class="eyebrow">Report</p>
+        <h1>Submit Maintenance Report</h1>
+        <p>Please provide details about the issue to help our maintenance team resolve it quickly.</p>
+      </div>
+    </div>
+
+    <form class="report-form" (ngSubmit)="onSubmit()" >
+      <label>
+        <span>Room Number</span>
+        <input type="text" placeholder="e.g. A-101" name="roomNumber" required />
+      </label>
+
+      <label>
+        <span>Issue Type</span>
+        <select name="issueType">
+          <option value="">Select Category</option>
+          <option>Electrical</option>
+          <option>HVAC</option>
+          <option>Audio / Visual</option>
+          <option>Structural</option>
+          <option>Other</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Description</span>
+        <textarea rows="8" placeholder="Please describe the issue in detail..." name="description" required></textarea>
+      </label>
+
+      <div class="upload-card">
+        <div class="upload-content">
+          <span class="upload-icon">⬆️</span>
+          <div>
+            <strong>Click to upload or drag and drop</strong>
+            <p>SVG, PNG, JPG or GIF (max. 5MB)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="secondary-button">Cancel</button>
+        <button type="submit" class="primary-button">Submit Report</button>
+      </div>
+    </form>
+  </section>
+</div>

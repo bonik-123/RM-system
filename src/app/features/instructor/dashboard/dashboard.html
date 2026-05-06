@@ -1,0 +1,96 @@
+<main class="main-content">
+
+  <!-- HEADER -->
+  <header class="top-header">
+    <h1>Instructor Dashboard</h1>
+
+    <div class="header-right">
+      <div class="date-info">
+        <span class="day-label">Today</span>
+        <span class="date-text">{{ today | date:'MMMM d, y' }}</span>
+      </div>
+
+      <span class="version-tag">Smart Campus v1.0</span>
+    </div>
+  </header>
+
+  <!-- WELCOME -->
+  <div class="welcome-panel">
+    <h2>Welcome back, {{ userName }} 👋</h2>
+    <p>Manage your classes, bookings, and schedules efficiently.</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-panel">
+    <h3 class="panel-title">My Overview</h3>
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <div class="stat-icon">📅</div>
+        <div>
+          <h4>{{ stats.todayClasses }}</h4>
+          <span>Today Classes</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">🏫</div>
+        <div>
+          <h4>{{ stats.bookedRooms }}</h4>
+          <span>Booked Rooms</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">⏳</div>
+        <div>
+          <h4>{{ stats.pendingRequests }}</h4>
+          <span>Pending Requests</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- QUICK ACTIONS -->
+  <div class="filter-panel">
+    <h3 class="panel-title">Quick Actions</h3>
+
+    <div class="filter-controls">
+      <input type="text" placeholder="Search rooms..." class="search-input">
+
+      <button class="btn-add">+ Book Room</button>
+      <button class="btn-add secondary">View Schedule</button>
+    </div>
+  </div>
+
+  <!-- SCHEDULE -->
+  <div class="reports-panel">
+    <h3 class="panel-title">Today's Classes</h3>
+
+    <div class="reports-list">
+
+      <div class="report-item" *ngFor="let c of classes">
+
+        <div class="report-icon">📘</div>
+
+        <div class="report-content">
+          <div class="report-header">
+            <h4>{{ c.course }}</h4>
+            <span class="priority-badge medium">{{ c.room }}</span>
+          </div>
+
+          <p class="report-details">{{ c.time }}</p>
+        </div>
+
+        <div class="report-status progress">
+          {{ c.status }}
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</main>

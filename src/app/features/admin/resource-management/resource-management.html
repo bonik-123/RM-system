@@ -1,0 +1,123 @@
+<main class="main-content">
+
+  <!-- HEADER -->
+  <header class="top-header">
+    <h1>Resource Management</h1>
+
+    <div class="header-right">
+      <div class="date-info">
+        <span class="day-label">Today</span>
+        <span class="date-text">{{ currentDate }}</span>
+      </div>
+
+      <span class="version-tag">Smart Campus v1.0</span>
+    </div>
+  </header>
+
+  <!-- WELCOME -->
+  <div class="welcome-panel">
+    <h2>Resource Management 📦</h2>
+    <p>Manage and track campus resources, equipment availability, and maintenance status across all facilities.</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-panel">
+    <h3 class="panel-title">Resource Overview</h3>
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <div class="stat-icon">📦</div>
+        <div>
+          <h4>{{ totalResources }}</h4>
+          <span>Total Resources</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">✓</div>
+        <div>
+          <h4>{{ available }}</h4>
+          <span>Available</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FILTER -->
+  <div class="filter-panel">
+    <h3 class="panel-title">Filter Resources</h3>
+
+    <div class="filter-controls">
+      <input type="text" placeholder="Search resources..." class="search-input">
+
+      <select class="filter-select">
+        <option>All Categories</option>
+        <option>AV Equipment</option>
+        <option>IT Equipment</option>
+        <option>Audio</option>
+      </select>
+
+      <button class="btn-add" (click)="addResource()">
+        + Add Resource
+      </button>
+    </div>
+  </div>
+
+  <!-- RESOURCES -->
+  <div class="resources-panel">
+    <h3 class="panel-title">Resource Inventory</h3>
+
+    <div class="resource-grid">
+
+      <div class="resource-card" *ngFor="let r of resources">
+
+        <!-- HEADER -->
+        <div class="resource-header">
+
+          <div class="resource-icon">
+            {{ r.icon }}
+          </div>
+
+          <div class="resource-info">
+            <h4>{{ r.name }}</h4>
+            <p>{{ r.category }}</p>
+          </div>
+
+          <div class="resource-actions">
+            <button class="action-btn edit" (click)="edit(r)">✎</button>
+            <button class="action-btn delete" (click)="remove(r)">🗑</button>
+          </div>
+
+        </div>
+
+        <!-- STATS -->
+        <div class="resource-stats">
+          <span class="availability">
+            Available: <strong>{{ r.available }} / {{ r.total }}</strong>
+          </span>
+
+          <span class="status-badge" [ngClass]="r.statusClass">
+            {{ r.status }}
+          </span>
+        </div>
+
+        <!-- PROGRESS -->
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-fill" [style.width.%]="r.percent"></div>
+          </div>
+        </div>
+
+        <!-- LOCATION -->
+        <div class="resource-location">
+          📍 {{ r.location }}
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</main>

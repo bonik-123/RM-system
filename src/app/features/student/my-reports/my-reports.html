@@ -1,0 +1,51 @@
+<div class="reports-page">
+  <section class="status-summary">
+    <div class="status-card dark">
+      <p>Total Submitted</p>
+      <strong>4</strong>
+    </div>
+    <div class="status-card gray">
+      <p>Pending Review</p>
+      <strong>2</strong>
+    </div>
+    <div class="status-card gold">
+      <p>In Progress</p>
+      <strong>1</strong>
+    </div>
+    <div class="status-card green">
+      <p>Resolved</p>
+      <strong>1</strong>
+    </div>
+  </section>
+
+  <section class="report-list-card">
+    <div class="report-list-header">
+      <div>
+        <p class="eyebrow">Reports</p>
+        <h1>My recent maintenance reports</h1>
+      </div>
+      <div class="filters-row">
+        <input type="text" placeholder="Search by issue, room, or type..." />
+        <select>
+          <option>All Status</option>
+          <option>Pending</option>
+          <option>In Progress</option>
+          <option>Resolved</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="report-items">
+      <div *ngFor="let report of reports()" class="report-card">
+        <div class="report-meta">
+          <h2>{{ report.title }}</h2>
+          <p>{{ report.room }} · {{ report.category }} · {{ report.date }}</p>
+        </div>
+        <div class="report-labels">
+          <span class="priority {{ report.level.toLowerCase() }}">{{ report.level }}</span>
+          <span class="status">{{ report.status }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,227 @@
+/* =========================
+   BASE WRAPPER
+========================= */
+
+.student-dashboard {
+    width: 100%;
+    min-height: 100vh;
+    background: #f3f6ff;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* =========================
+   HERO CARD
+========================= */
+
+.hero-card {
+    background: #1e2143;
+    color: white;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+}
+
+.hero-card h1 {
+    font-size: 22px;
+    font-weight: 900;
+    margin-top: 6px;
+}
+
+.hero-card p {
+    font-size: 13px;
+    opacity: 0.85;
+    margin-top: 4px;
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #c0c4e1;
+}
+
+.primary-button {
+    background: #ffaa00;
+    color: #1e2143;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.primary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 170, 0, 0.3);
+}
+
+/* =========================
+   GRID LAYOUT
+========================= */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* =========================
+   INFO CARD BASE
+========================= */
+
+.info-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info-card h2 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1e2143;
+}
+
+.info-card p {
+    font-size: 13px;
+    color: #666;
+}
+
+/* =========================
+   SEARCH ROW
+========================= */
+
+.search-row input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    background: #fafbfc;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-row input:focus {
+    border-color: #ffaa00;
+    box-shadow: 0 0 0 3px rgba(255, 170, 0, 0.15);
+}
+
+/* =========================
+   ROOM PREVIEW
+========================= */
+
+.room-preview {
+    background: #f8f9fc;
+    border: 1px dashed #d9dce5;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+}
+
+.placeholder {
+    color: #888;
+    font-size: 13px;
+}
+
+/* =========================
+   REPORT CARD
+========================= */
+
+.reports-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.report-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* =========================
+   REPORT ITEM
+========================= */
+
+.report-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fc;
+    border: 1px solid #eef0f5;
+    padding: 14px;
+    border-radius: 12px;
+    transition: 0.2s ease;
+}
+
+.report-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.report-item h3 {
+    font-size: 14px;
+    font-weight: 800;
+    color: #1e2143;
+}
+
+.report-item p {
+    font-size: 12px;
+    color: #666;
+    margin-top: 3px;
+}
+
+/* =========================
+   STATUS BADGE
+========================= */
+
+.status-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 12px;
+    background: #eee;
+    text-transform: uppercase;
+}
+
+/* optional status colors */
+.status-badge.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-badge.resolved {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-badge.progress {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}

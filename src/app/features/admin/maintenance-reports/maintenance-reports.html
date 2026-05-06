@@ -1,0 +1,125 @@
+<main class="main-content">
+
+  <!-- HEADER -->
+  <header class="top-header">
+    <h1>Maintenance Reports</h1>
+
+    <div class="header-right">
+      <div class="date-info">
+        <span class="day-label">Today</span>
+        <span class="date-text">{{ currentDate }}</span>
+      </div>
+
+      <span class="version-tag">Smart Campus v1.0</span>
+    </div>
+  </header>
+
+  <!-- WELCOME -->
+  <div class="welcome-panel">
+    <h2>Maintenance Reports 📋</h2>
+    <p>Track and manage facility maintenance issues, equipment repairs, and system updates across campus.</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-panel">
+    <h3 class="panel-title">Report Overview</h3>
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <div class="stat-icon">📋</div>
+        <div>
+          <h4>{{ totalReports }}</h4>
+          <span>Total Reports</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">🕒</div>
+        <div>
+          <h4>{{ pending }}</h4>
+          <span>Pending</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">🛠</div>
+        <div>
+          <h4>{{ inProgress }}</h4>
+          <span>In Progress</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">✓</div>
+        <div>
+          <h4>{{ resolved }}</h4>
+          <span>Resolved</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FILTER -->
+  <div class="filter-panel">
+    <h3 class="panel-title">Filter Reports</h3>
+
+    <div class="filter-controls">
+      <input type="text" placeholder="Search reports..." class="search-input">
+
+      <select class="filter-select">
+        <option>All Status</option>
+        <option>Pending</option>
+        <option>In Progress</option>
+        <option>Resolved</option>
+      </select>
+
+      <select class="filter-select">
+        <option>All Priority</option>
+        <option>High</option>
+        <option>Medium</option>
+        <option>Low</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- REPORTS -->
+  <div class="reports-panel">
+    <h3 class="panel-title">Recent Reports</h3>
+
+    <div class="reports-list">
+
+      <div class="report-item" *ngFor="let report of reports">
+
+        <div class="report-icon">
+          {{ report.icon }}
+        </div>
+
+        <div class="report-content">
+
+          <div class="report-header">
+            <h4>{{ report.title }}</h4>
+            <span class="priority-badge">{{ report.priority }}</span>
+          </div>
+
+          <p class="report-details">
+            {{ report.room }} • {{ report.category }}
+          </p>
+
+          <small class="report-date">
+            {{ report.date }}
+          </small>
+
+        </div>
+
+        <div class="report-status" [ngClass]="report.statusClass">
+          {{ report.status }}
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</main>

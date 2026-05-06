@@ -1,0 +1,251 @@
+/* =========================
+   HOST WRAPPER
+========================= */
+
+:host {
+    width: 100%;
+    display: block;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.booking-container {
+    width: 100%;
+    flex: 1;
+    min-width: 0;
+    background: #f3f6ff;
+
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.page-header {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    padding: 16px 30px;
+    border-bottom: 1px solid #e6e9f2;
+}
+
+.page-header h1 {
+    font-size: 20px;
+    font-weight: 900;
+    color: #1e2143;
+}
+
+.page-header p {
+    font-size: 13px;
+    color: #666;
+    margin-top: 4px;
+}
+
+/* =========================
+   GRID LAYOUT
+========================= */
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.booking-form-card,
+.recent-bookings-card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.booking-form-card h2,
+.recent-bookings-card h2 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1e2143;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   TYPE SELECTOR
+========================= */
+
+.booking-type-selector {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.type-radio {
+    flex: 1;
+    background: #f8f9fc;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #eef0f5;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.type-radio input {
+    accent-color: #ffaa00;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1e2143;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    background: #fafbfc;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #ffaa00;
+    box-shadow: 0 0 0 3px rgba(255, 170, 0, 0.1);
+}
+
+/* ROW */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+
+.btn-submit {
+    margin-top: 10px;
+    padding: 12px;
+    background: #ffaa00;
+    border: none;
+    border-radius: 10px;
+    font-weight: 800;
+    color: #1e2143;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 170, 0, 0.3);
+}
+
+/* =========================
+   RECENT BOOKINGS
+========================= */
+
+.bookings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.booking-item {
+    background: #f8f9fc;
+    border: 1px solid #eef0f5;
+    padding: 14px;
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.booking-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.booking-details h4 {
+    font-size: 14px;
+    font-weight: 800;
+    color: #1e2143;
+}
+
+.booking-date,
+.booking-time {
+    font-size: 12px;
+    color: #666;
+}
+
+/* =========================
+   STATUS BADGES
+========================= */
+
+.booking-status {
+    font-size: 11px;
+    font-weight: 800;
+    padding: 6px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+}
+
+.status-confirmed {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+    .booking-grid {
+        grid-template-columns: 1fr;
+    }
+}

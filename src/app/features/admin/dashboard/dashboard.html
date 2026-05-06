@@ -1,0 +1,146 @@
+<main class="main-content">
+
+    <!-- HEADER -->
+    <header class="top-header">
+        <h1>Dashboard</h1>
+
+        <div class="header-right">
+            <div class="date-info">
+                <span class="day-label">Today</span>
+                <span class="date-text">{{ today | date:'MMMM d, y' }}</span>
+            </div>
+
+            <span class="version-tag">Smart Campus v1.0</span>
+        </div>
+    </header>
+
+    <!-- WELCOME -->
+    <div class="welcome-panel">
+        <h2>Welcome back, {{ userName }} 👋</h2>
+        <p>Manage bookings, rooms, and campus resources efficiently.</p>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-panel">
+        <h3 class="panel-title">System Overview</h3>
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-icon">📅</div>
+                <div>
+                    <h4>{{ stats.totalBookings }}</h4>
+                    <span>Total Bookings</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🏫</div>
+                <div>
+                    <h4>{{ stats.activeRooms }}</h4>
+                    <span>Active Rooms</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">⏳</div>
+                <div>
+                    <h4>{{ stats.pendingRequests }}</h4>
+                    <span>Pending Requests</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🔧</div>
+                <div>
+                    <h4>{{ stats.maintenance }}</h4>
+                    <span>Maintenance</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FILTER -->
+    <div class="filter-panel">
+        <h3 class="panel-title">Quick Filters</h3>
+
+        <div class="filter-controls">
+            <input type="text" placeholder="Search activities..." class="search-input" [(ngModel)]="searchKey">
+
+            <select class="filter-select" [(ngModel)]="filterType">
+                <option value="all">All Activities</option>
+                <option value="booking">Bookings</option>
+                <option value="maintenance">Maintenance</option>
+                <option value="user">User Activity</option>
+            </select>
+
+            <select class="filter-select" [(ngModel)]="timeFilter">
+                <option value="all">All Time</option>
+                <option value="today">Today</option>
+                <option value="week">This Week</option>
+                <option value="month">This Month</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- CALENDAR -->
+    <div class="activity-panel">
+        <h3 class="panel-title">Booking Calendar</h3>
+
+        <div class="calendar">
+            <div class="calendar-header">
+                <span>Sun</span><span>Mon</span><span>Tue</span>
+                <span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+            </div>
+
+            <div class="calendar-grid">
+                <div class="day" *ngFor="let day of calendarDays">
+                    {{ day.number }}
+
+                    <span class="event" *ngIf="day.event">
+                        {{ day.event }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACTIVITY -->
+    <div class="activity-panel">
+        <h3 class="panel-title">Recent Activity</h3>
+
+        <div class="activity-grid">
+
+            <div class="activity-card" *ngFor="let a of activities">
+
+                <div class="activity-header">
+                    <div class="activity-icon">{{ a.icon }}</div>
+
+                    <div class="activity-info">
+                        <h4>{{ a.title }}</h4>
+                        <p>{{ a.description }}</p>
+                    </div>
+
+                    <div class="activity-status">
+                        <span class="status-tag" [ngClass]="a.type">
+                            {{ a.type | uppercase }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="activity-details">
+                    <span class="detail-item"><strong>{{ a.label1 }}:</strong> {{ a.value1 }}</span>
+                    <span class="detail-item"><strong>{{ a.label2 }}:</strong> {{ a.value2 }}</span>
+                </div>
+
+                <div class="activity-time">
+                    {{ a.time }}
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</main>

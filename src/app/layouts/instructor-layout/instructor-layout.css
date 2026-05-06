@@ -1,0 +1,203 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* =========================
+   WRAPPER
+========================= */
+
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background: #f3f6ff;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    width: 260px;
+    background: #1e2143;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+
+    box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.brand {
+    padding: 25px 20px;
+    color: #ffaa00;
+}
+
+.brand h2 {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+/* =========================
+   MENU
+========================= */
+
+.menu-section {
+    padding: 10px 0;
+}
+
+.menu-label {
+    display: block;
+    padding: 10px 20px;
+
+    font-size: 11px;
+    color: #7b80a5;
+
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* NAV LIST */
+
+.nav-list {
+    list-style: none;
+}
+
+/* ITEM */
+
+.nav-item {
+    padding: 12px 20px;
+    margin: 4px 10px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    color: #c0c4e1;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* ICON */
+.nav-item .icon {
+    font-size: 16px;
+}
+
+/* HOVER */
+.nav-item:hover {
+    background: rgba(255,255,255,0.08);
+    color: white;
+}
+
+/* ACTIVE (IMPORTANT UPGRADE) */
+.nav-item.active {
+    background: #ffaa00;
+    color: #1e2143;
+    font-weight: 700;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 20px;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* USER PROFILE */
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 16px;
+}
+
+/* USER INFO */
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info strong {
+    font-size: 14px;
+    color: white;
+}
+
+.user-info span {
+    font-size: 11px;
+    color: #7b80a5;
+}
+
+/* LOGOUT */
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #ff5b5b;
+    cursor: pointer;
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.logout-btn:hover {
+    opacity: 0.8;
+}
+
+/* =========================
+   MAIN CONTENT (IMPORTANT FIX)
+   Angular router-outlet layout support
+========================= */
+
+router-outlet + * {
+    flex: 1;
+    min-width: 0;
+
+    display: block;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background: #f3f6ff;
+}

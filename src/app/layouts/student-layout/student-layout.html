@@ -1,0 +1,89 @@
+<div class="student-container">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="brand">
+      <h2>Smart Campus</h2>
+    </div>
+
+    <!-- MAIN MENU -->
+    <div class="menu-section">
+      <span class="menu-label">MAIN MENU</span>
+
+      <ul class="nav-list">
+        <li routerLink="/student/dashboard" routerLinkActive="active" class="nav-item">
+          <span class="icon">🏠</span> Dashboard
+        </li>
+
+        <li routerLink="/student/submit" routerLinkActive="active" class="nav-item">
+          <span class="icon">🛠️</span> Submit Maintenance
+        </li>
+
+        <li routerLink="/student/reports" routerLinkActive="active" class="nav-item">
+          <span class="icon">📄</span> My Reports
+        </li>
+
+        <li routerLink="/student/rooms" routerLinkActive="active" class="nav-item">
+          <span class="icon">🏫</span> Room Information
+        </li>
+      </ul>
+    </div>
+
+    <!-- SYSTEM -->
+    <div class="menu-section">
+      <span class="menu-label">SYSTEM</span>
+
+      <ul class="nav-list">
+        <li routerLink="/student/about" routerLinkActive="active" class="nav-item">
+          <span class="icon">ℹ️</span> About System
+        </li>
+
+        <li routerLink="/student/support" routerLinkActive="active" class="nav-item">
+          <span class="icon">✉️</span> Contact / Support
+        </li>
+      </ul>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="sidebar-footer">
+
+      <div class="user-profile">
+        <div class="avatar">👨‍🎓</div>
+
+        <div class="user-info">
+          <strong>Student</strong>
+          <span>Active</span>
+        </div>
+      </div>
+
+      <a class="logout-btn">
+        <span class="icon">⏻</span> Logout
+      </a>
+
+    </div>
+
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <header class="top-header">
+      <div>
+        <h2>Student Portal</h2>
+        <p class="top-note">Manage maintenance requests and room information easily.</p>
+      </div>
+
+      <div class="date-block">
+        <span>Today</span>
+        <strong></strong>
+      </div>
+    </header>
+
+    <div class="content-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+
+  </main>
+
+</div>

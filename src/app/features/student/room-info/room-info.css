@@ -1,0 +1,220 @@
+/* =========================
+   PAGE WRAPPER
+========================= */
+
+.room-page {
+    width: 100%;
+    min-height: 100vh;
+    background: #f3f6ff;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* =========================
+   HERO BANNER
+========================= */
+
+.hero-banner {
+    background: #1e2143;
+    color: white;
+    border-radius: 20px;
+    padding: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+}
+
+.hero-banner h1 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: 6px;
+    max-width: 600px;
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #c0c4e1;
+}
+
+.hero-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: right;
+    font-size: 13px;
+    color: #ffaa00;
+    font-weight: 700;
+}
+
+/* =========================
+   SEARCH CARD
+========================= */
+
+.room-search-card {
+    background: white;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.room-search-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.room-search-row input,
+.room-search-row select {
+    flex: 1;
+    min-width: 180px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    background: #fafbfc;
+    font-size: 13px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.room-search-row input:focus,
+.room-search-row select:focus {
+    border-color: #ffaa00;
+    box-shadow: 0 0 0 3px rgba(255, 170, 0, 0.15);
+}
+
+/* =========================
+   ROOMS GRID
+========================= */
+
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+/* =========================
+   ROOM CARD
+========================= */
+
+.room-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: 0.2s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* HEADER */
+.room-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.room-card-header h2 {
+    font-size: 16px;
+    font-weight: 900;
+    color: #1e2143;
+}
+
+.room-card-header p {
+    font-size: 12px;
+    color: #666;
+    margin-top: 3px;
+}
+
+/* =========================
+   STATUS BADGE
+========================= */
+
+.status {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+}
+
+/* STATUS COLORS */
+.status.available {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status.occupied {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.status.maintenance {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* =========================
+   INFO ROW
+========================= */
+
+.room-info-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    font-size: 12px;
+    color: #555;
+}
+
+/* FEATURE CHIPS */
+.feature-chip {
+    background: #f8f9fc;
+    border: 1px solid #eef0f5;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+/* =========================
+   VIEW LINK
+========================= */
+
+.view-link {
+    margin-top: auto;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffaa00;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.view-link:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+    .hero-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .hero-metrics {
+        text-align: left;
+    }
+}

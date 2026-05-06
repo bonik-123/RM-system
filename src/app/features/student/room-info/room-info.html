@@ -1,0 +1,49 @@
+<div class="room-page">
+  <section class="hero-banner">
+    <div>
+      <p class="eyebrow">Room Information</p>
+      <h1>Browse room details, capacity, features, and today’s schedule at a glance.</h1>
+    </div>
+    <div class="hero-metrics">
+      <span>6 Total Rooms</span>
+      <span>3 Available Now</span>
+    </div>
+  </section>
+
+  <section class="room-search-card">
+    <div class="room-search-row">
+      <input type="text" placeholder="Search room name, code, or building..." />
+      <select>
+        <option>All Types</option>
+        <option>Classroom</option>
+        <option>Lecture Hall</option>
+        <option>Lab</option>
+      </select>
+      <select>
+        <option>All Status</option>
+        <option>Available</option>
+        <option>Currently Occupied</option>
+        <option>Under Maintenance</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="rooms-grid">
+    <div *ngFor="let room of rooms()" class="room-card">
+      <div class="room-card-header">
+        <div>
+          <h2>{{ room.name }}</h2>
+          <p>{{ room.subtitle }}</p>
+        </div>
+        <span [ngClass]="room.status === 'Available' ? 'status available' : room.status === 'Currently Occupied' ? 'status occupied' : 'status maintenance'">{{ room.status }}</span>
+      </div>
+
+      <div class="room-info-row">
+        <span>👥 {{ room.capacity }}</span>
+        <div class="feature-chip" *ngFor="let feature of room.features">{{ feature }}</div>
+      </div>
+
+      <div class="view-link">View Details</div>
+    </div>
+  </section>
+</div>

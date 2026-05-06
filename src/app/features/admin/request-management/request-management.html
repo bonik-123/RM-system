@@ -1,0 +1,143 @@
+<main class="main-content">
+
+  <!-- HEADER -->
+  <header class="top-header">
+    <h1>Request Management</h1>
+
+    <div class="header-right">
+      <div class="date-info">
+        <span class="day-label">Today</span>
+        <span class="date-text">{{ currentDate }}</span>
+      </div>
+
+      <span class="version-tag">Smart Campus v1.0</span>
+    </div>
+  </header>
+
+  <!-- WELCOME -->
+  <div class="welcome-panel">
+    <h2>Request Management 📋</h2>
+    <p>Review and manage room bookings and resource requests from instructors and students across campus.</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-panel">
+    <h3 class="panel-title">Request Overview</h3>
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <div class="stat-icon">📋</div>
+        <div>
+          <h4>{{ totalRequests }}</h4>
+          <span>Total Requests</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">🕒</div>
+        <div>
+          <h4>{{ pending }}</h4>
+          <span>Pending</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">✓</div>
+        <div>
+          <h4>{{ approved }}</h4>
+          <span>Approved</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">✗</div>
+        <div>
+          <h4>{{ rejected }}</h4>
+          <span>Rejected</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FILTER -->
+  <div class="filter-panel">
+    <h3 class="panel-title">Filter Requests</h3>
+
+    <div class="filter-controls">
+      <input type="text" placeholder="Search requests..." class="search-input">
+
+      <select class="filter-select">
+        <option>All Status</option>
+        <option>Pending</option>
+        <option>Approved</option>
+        <option>Rejected</option>
+      </select>
+
+      <select class="filter-select">
+        <option>All Types</option>
+        <option>Room Booking</option>
+        <option>Resource</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- REQUESTS -->
+  <div class="requests-panel">
+    <h3 class="panel-title">Recent Requests</h3>
+
+    <div class="request-grid">
+
+      <div class="request-card" *ngFor="let req of requests">
+
+        <!-- HEADER -->
+        <div class="request-header">
+
+          <div class="request-icon">
+            {{ req.icon }}
+          </div>
+
+          <div class="request-info">
+            <h4>{{ req.title }}</h4>
+            <p>{{ req.type }}</p>
+          </div>
+
+          <div class="request-actions">
+            <button class="action-btn approve" (click)="approve(req)">✓</button>
+            <button class="action-btn reject" (click)="reject(req)">✗</button>
+          </div>
+
+        </div>
+
+        <!-- DETAILS -->
+        <div class="request-details">
+          <span class="detail-item">
+            <strong>Requester:</strong> {{ req.requester }}
+          </span>
+
+          <span class="detail-item">
+            <strong>Time:</strong> {{ req.time }}
+          </span>
+        </div>
+
+        <!-- FEATURES -->
+        <div class="request-features">
+          <span class="feature-tag" *ngFor="let f of req.features">
+            {{ f }}
+          </span>
+        </div>
+
+        <!-- STATUS -->
+        <div class="request-status">
+          <span class="status-tag" [ngClass]="req.statusClass">
+            {{ req.status }}
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</main>

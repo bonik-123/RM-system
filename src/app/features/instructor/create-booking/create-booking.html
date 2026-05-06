@@ -1,0 +1,128 @@
+<div class="booking-container">
+  <div class="page-header">
+    <h1>Create Booking</h1>
+    <p>Book a room or request resources for your classes</p>
+  </div>
+
+  <div class="booking-grid">
+    <!-- Booking Form -->
+    <div class="booking-form-card">
+      <h2>New Booking Request</h2>
+
+      <!-- Booking Type Selector -->
+      <div class="booking-type-selector">
+        <label class="type-radio">
+          <input 
+            type="radio" 
+            name="bookingType" 
+            value="room"
+            [checked]="bookingType() === 'room'"
+            (change)="bookingType.set('room')">
+          <span>Book a Room</span>
+        </label>
+        <label class="type-radio">
+          <input 
+            type="radio" 
+            name="bookingType" 
+            value="resource"
+            [checked]="bookingType() === 'resource'"
+            (change)="bookingType.set('resource')">
+          <span>Request Resources</span>
+        </label>
+      </div>
+
+      <form (ngSubmit)="onSubmit()" class="form">
+        <!-- Room Booking -->
+        <div *ngIf="bookingType() === 'room'" class="form-section">
+          <div class="form-group">
+            <label>Select Room *</label>
+            <select [(ngModel)]="selectedRoom" name="room" required>
+              <option value="">Choose a room...</option>
+              <option *ngFor="let room of rooms()" [value]="room">{{ room }}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Purpose *</label>
+            <select [(ngModel)]="purpose" name="purpose" required>
+              <option value="">Select purpose...</option>
+              <option *ngFor="let p of purposes()" [value]="p">{{ p }}</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Date *</label>
+              <input type="date" [(ngModel)]="date" name="date" required>
+            </div>
+            <div class="form-group">
+              <label>Time *</label>
+              <input type="time" [(ngModel)]="time" name="time" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Duration (hours) *</label>
+            <select [(ngModel)]="duration" name="duration" required>
+              <option value="1">1 hour</option>
+              <option value="2">2 hours</option>
+              <option value="3">3 hours</option>
+              <option value="4">4 hours</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Resource Request -->
+        <div *ngIf="bookingType() === 'resource'" class="form-section">
+          <div class="form-group">
+            <label>Select Resource *</label>
+            <select [(ngModel)]="selectedResource" name="resource" required>
+              <option value="">Choose a resource...</option>
+              <option *ngFor="let resource of resources()" [value]="resource">{{ resource }}</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Number of Items *</label>
+              <input type="number" [(ngModel)]="numberOfItems" name="numberOfItems" min="1" required>
+            </div>
+            <div class="form-group">
+              <label>Date *</label>
+              <input type="date" [(ngModel)]="date" name="date" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Purpose *</label>
+            <input 
+              type="text" 
+              [(ngModel)]="purpose" 
+              name="purpose"
+              placeholder="e.g., Lab session, presentation"
+              required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit">Submit Booking Request</button>
+      </form>
+    </div>
+
+    <!-- Recent Bookings -->
+    <div class="recent-bookings-card">
+      <h2>Recent Bookings</h2>
+      <div class="bookings-list">
+        <div *ngFor="let booking of recentBookings()" class="booking-item">
+          <div class="booking-details">
+            <h4>{{ booking.name }}</h4>
+            <p class="booking-date">{{ booking.date }}</p>
+            <p class="booking-time">{{ booking.time }}</p>
+          </div>
+          <span [class]="'booking-status ' + (booking.status === 'Confirmed' ? 'status-confirmed' : 'status-pending')">
+            {{ booking.status }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
